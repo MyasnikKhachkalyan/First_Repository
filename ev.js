@@ -1,20 +1,7 @@
 'use strict';
-//
-// let counter = 0;
-//
-// const interval = setInterval(function(){
-//   console.log(`called ${++counter} times`);
-//   if (counter === 5) {
-//     clearInterval(interval);
-//   }
-//
-// },300);
-
-// process.stdin.on('data',function(d){
-//   console.log(d.toString());
-// })
 
 const http = require('http');
+const p = require('./ports');
 
 const server = http.createServer((req, res) => {
   if(req.url === '/'){
@@ -23,7 +10,7 @@ const server = http.createServer((req, res) => {
     res.end(`
       <!doctype html>
       <body>
-        <h1>some header! </h1>
+        <h1>${p.upper(__dirname)} </h1>
         <p> what a body =P </p>
       </body>
       `)
