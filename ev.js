@@ -11,6 +11,7 @@ const server = http.createServer((req, res) => {
       <!doctype html>
       <body>
         <h1>${p.upper(__dirname)} </h1>
+        <h3>${p.newF("THIS IS NEW FUNCTON")}</h3>
         <p> what a body =P </p>
       </body>
       `)
