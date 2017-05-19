@@ -1,7 +1,7 @@
 'use strict';
 
 const http = require('http');
-const p = require('./ports');
+const {newF, upper, port} = require('./ports');
 
 const server = http.createServer((req, res) => {
   if(req.url === '/'){
@@ -10,12 +10,15 @@ const server = http.createServer((req, res) => {
     res.end(`
       <!doctype html>
       <body>
-        <h1>${p.upper(__dirname)} </h1>
-        <h3>${p.newF("THIS IS NEW FUNCTON")}</h3>
+        <h1>${upper(__dirname)}</h1>
+        <h3>${newF("THIS IS NEW FUNCTON")}</h3>
         <p> what a body =P </p>
       </body>
       `)
-  } else{ res.end('UNKNOWN')}
+  } else{ }
 })
 
-server.listen(8080, () => console.log("listened to 8080"));
+server.on('connection', socket => {
+  console.log("Someone connected", socket);
+})
+server.listen(port, () => console.log(`listened to ${port}`));

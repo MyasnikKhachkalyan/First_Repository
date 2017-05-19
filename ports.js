@@ -8,6 +8,8 @@ const newF = (nf) => {
   return nf.toLowerCase();
 }
 
+const port = 8080;
+
 module.exports = {
-  upper, newF
+  upper, newF, port
 }
